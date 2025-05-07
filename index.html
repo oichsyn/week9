@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PMG 스마트 안경</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
+  <style type="text/css">
+    /* 기본 설정 */
+    *{margin: 0;padding: 0;
+    box-sizing: border-box;}
+
+    html {font-family: 'Noto Sans KR', sans-serif;
+                font-optical-sizing: auto;
+                font-size: 16px;
+                line-height: 1.6;
+                word-break: keep-all;
+                background-color: #fff;
+                color: #000;
+                scroll-behavior: smooth;}
+
+    body, h1, h2, h3, p, ul{margin: 0; padding: 0;}
+    img{width: 100%;}
+
+    h2 {padding-top: 150px;
+        font-size: 2.5rem;}
+
+    section a {text-decoration: none;}
+    .wrap {position:relative; width: 1000px; margin: auto;}
+
+    
+    .monoton-regular {font-family: "Monoton", sans-serif;
+                      font-weight: 400;
+                      font-style: normal;}
+    .alexandria {font-family: "Alexandria", sans-serif;
+                              font-optical-sizing: auto;
+                              font-weight: <weight>;
+                              font-style: normal;}
+    .rightspacing {text-align: right;}
+
+    .green {color: #D2FE00;}
+    .white {color: white;}
+    .black {color: black;}
+    .background-green {background: #D2FE00;}
+    .main-text {font-size: 50px; font-weight: bold; line-height: 1.5;}
+    .sub-text {font-size: 25px; font-weight: 500;}
+    .weight500{font-weight: 500;}
+
+    .margin-bottom50{margin-bottom: 50px;}
+
+
+
+
+    /* 헤더 */
+    header {background: #D2FE00;
+            padding: 15px 0px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;}
+
+    .nav-container{display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;}
+
+    .nav-menu{list-style: none;
+              display: flex;
+              justify-content: center;
+              gap: 222px;}
+
+    .nav-menu li a{text-decoration: none;
+                  color: black;
+                  font-size: 16px;
+                  font-weight: 400;
+                  padding: 8px 16px;
+                  border-radius: 10px;
+                  transition: all 0.1s ease;}
+
+    nav ul {list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            gap: 24px;}
+
+    ul li a:hover{background: black; color: #D2FE00;
+                  transition: all 0.5s;}
+
+    /* 홈 섹션 */
+    #home {background: linear-gradient(to bottom, #000 55%, #D2FE00 80%);
+          color: white;
+          padding: 130px 0px 180px;}
+
+    #home h1 {font-size: 200px;
+              text-align: center;
+              margin-bottom: -150px;}
+          p {margin-bottom: 70px;
+            line-height: 1.6;}
+
+    #home button {padding: 17px 30px;
+                  display: block;
+                  margin: 170px auto 0;
+                  background: black;
+                  color: #D2FE00;
+                  border: none;
+                  font-weight: bold;
+                  cursor: pointer;
+                  border-radius: 10px;}
+          button a {color: #D2FE00;
+                    font-size: 20px;}
+    .margin-bottom {margin-bottom: 100px;}
+    .float-updown {animation: floatMotion 3s ease-in-out infinite;
+                    display: block;
+                    margin: 0 auto;}
+    .logo {width: 70%; margin: 0 auto; margin-top: 60px;}
+
+@keyframes floatMotion {
+  0% {transform: translateY(0px); }
+  50% { transform: translateY(-20px);}
+  100% {transform: translateY(0px);}
+}
+
+
+       
+
+  /* 소개 섹션 */
+  #about {background: #D2FE00;
+          position: relative;
+          padding-bottom: 930px;}
+    h2 {padding: 150px 0px 0px;}
+
+    .info-box {position: absolute;
+              background: #9AED0B;
+              padding: 20px;
+              border-radius: 10px;
+              width: 220px;
+              font-size: 14px;
+              line-height: 1.5;
+              text-align: center;}
+    .info-box h3 {margin-bottom: 11px;
+                  font-weight: 500; font-size: 16ox;}
+    .info-box p {margin-bottom: 0;
+                font-weight: 400; font-size: 14px;}
+
+    .glasses-img {position: absolute;
+                  top: 490px; right: -10px; width: 800px; z-index: 1;}
+    .about-description {width: 600px; text-align: left; margin-left: 0;}
+
+    /* 초록박스 포지션 */
+    .top-left {top: 820px; left: 45px;}
+    .bottom-center {bottom: -743px; left: 294px;}
+    .top-right {top: 910px; right: 93px;}
+
+
+
+  /* 앱 섹션 */
+  #app {margin-bottom: 90px;}
+    h2 {line-height: 1.4;
+        padding: 150px 0px 60px;}
+    .phone-wrap {position: relative;
+                    width: 100%;
+                    width: 1000px;
+                    margin: 0 auto;}
+
+    .phone-img {width: 100%;
+                display: block;}
+
+    .circle-box {position: absolute;
+                background-color: rgba(214, 255, 0, 0.6); /* 반투명 연두색 */
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 1.4;
+                color: #111;
+                padding: 20px;
+                opacity: 0;
+                transform: scale(0.8);
+                animation: pop-in 0.6s ease-out forwards;}
+    .circle-box span {display: inline-block;}
+
+
+  /*    원 위치*/
+    .circle-left {top: 720px; left: 120px;
+                  width: 230px; height: 230px;
+                  animation-delay: 0.2s;}
+    .circle-right-top {top: 850px; right: 210px;
+                      width: 130px; height: 130px;
+                      animation-delay: 0.6s;}
+    .circle-right-bottom {bottom: 200px; right: 140px;
+                          width: 180px; height: 180px;
+                          animation-delay: 1s;}
+    @keyframes pop-in {0% {opacity: 0; transform: scale(0.8);}
+                      100% {opacity: 1; transform: scale(1);}}
+
+
+
+
+  /*박스-1.다양한 필터*/
+  #features
+    .feature-stack {display: flex;
+                    flex-direction: column;
+                    gap: 60px;}
+
+    .app-feature-wrap {background: black;
+                      padding: 280px 0;
+                      position: relative;
+                      z-index: 0;}
+    .app-feature-section {background: black;
+                          padding: 20px 0 30px 0;
+                          color: #d7ff41;
+                          z-index: 1;
+                          width: 100%;
+                          max-width: 1000px;
+                          position: relative;}
+    .app-feature-section h3 {text-align: center;
+                            padding: 15px 10px 30px;
+                            font-weight: 500;
+                            font-size: 25pt;}
+    .round-right {border-radius: 0 20px 20px 0;}
+    .round-left {border-radius: 20px 0 0 20px;}
+    .align-right {margin-left: auto; margin-right: 0;}
+    .align-left {margin-left: 0; margin-right: auto;}
+
+    .scroll-box {overflow: hidden; width: 100%; padding: 20px 0 150px; 
+                gap: 80px; display: flex;
+                position: relative;}
+    .scroll-item {min-width: 300px;
+                  height: 300px;
+                  background: white;
+                  border-radius: 30px;
+                  display: flex;
+                  flex-shrink: 0;}
+    .scroll-item img {width: 100%; height: 100%;
+                      object-fit: cover;
+                      border-radius: 30px;}
+    .auto-scroll {display: flex; gap: 100px;
+                  animation: scroll-loop 10s linear infinite;
+                  width: max-content;}
+    .auto-scroll-2 {display: flex; gap: 100px;
+                  animation: scroll-loop-2 10s linear infinite;
+                  width: max-content;}
+    .edge-blur {position: absolute;
+                top: 0;
+                width: calc((100% - 1000px) / 2);
+                height: 100%;
+                z-index: 10;
+                pointer-events: none;
+                backdrop-filter: blur(10px);}
+    .blur-left {left: 0;}
+    .blur-right {right: 0;}
+
+   
+
+    .delay1 {animation-delay: 0s;}
+    .delay2 {animation-delay: 2s;}
+    .delay3 {animation-delay: 1s;}
+
+    @keyframes scroll-loop {0%{transform: translateX(0);}
+                            100%{transform: translateX(-50%);}}
+    @keyframes scroll-loop-2 {0%{transform: translateX(0);}
+                            100%{transform: translateX(50%);}}
+
+
+
+
+
+  #select {background: #D2FE00;
+        text-align: center;
+        padding: 80px 0 250px;}
+  
+  #select h2 {font-size: 40px;
+        font-weight: 700;
+        text-decoration: none;
+        padding: 150px 0 30px;}
+    p {font-weight: 400; font-size: 18px;
+      margin-bottom: 140px;}
+
+
+
+    .mood-grid {display: grid;
+                grid-template-columns: repeat(2, 250px);
+                gap: 40px;
+                justify-content: center;}
+
+    .mood-box {background: black;
+              color: white;
+              width: 250px;
+              height: 250px;
+              border: none; border-radius: 10px;
+              font-size: 16px;font-weight: 600;
+              cursor: pointer;
+              position: relative; overflow: hidden; display: flex;
+              align-items: center; justify-content: center;}
+    .mood-box span {z-index: 2; position: relative;
+                    transition: color 0.4s ease;
+                    font-size: 17px; font-weight: 600;}
+    .mood-box:hover span {color: #ffffff;}
+    .hover-img {position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  opacity: 0;
+                  transition: opacity 0.5s ease;
+                  z-index: 1;
+                  filter: brightness(0.9);}
+    .mood-box:hover .hover-img {opacity: 1;}
+                    
+
+    .mood-options button {padding: 12px 20px;
+                          border: none;
+                          font-weight: bold;
+                          cursor: pointer;
+                          background: #D2FE00;}
+
+
+
+
+
+
+/*필터 체험*/
+    .container {position: relative;
+                width: 100vw; height: 100vh; overflow: hidden;}
+    .image-base {width: 100%; height: 100%; 
+                object-fit: cover; position: absolute;
+                top: 0; left: 0; z-index: 0;}
+    .image-top {width: 100%; height: 100%;
+                object-fit: cover;
+                position: absolute; pointer-events: none;
+                top: 0; left: 0; z-index: 1;}
+
+    .mask-target {-webkit-mask-image: radial-gradient(circle 180px at center,             transparent 0%, transparent 90%, black 100%);
+                -webkit-mask-repeat: no-repeat;
+                -webkit-mask-position: center;
+                -webkit-mask-size: 100% 100%;}
+
+
+    /*돌아가기 버튼*/
+    .back-button-wrap {position: absolute;
+                      bottom: 110px; left: 50%; transform: translateX(-50%);
+                      z-index: 11;
+                      justify-content: center;
+                      display: flex; justify-content: center;}
+
+    .back-button {background: #D2FE00;
+                  color: black;
+                  font-weight: 500; font-size: 20px;
+                  padding: 10px 35px;
+                  border-radius: 16px;
+                  text-decoration: none; transition: all 0.3s ease;
+                  border: 2px solid white; z-index: 11;}
+    .back-button:hover {background: black;
+                        color: #D2FE00;
+                        border-color: #D2FE00;}
+
+
+
+
+
+
+  /* 구매 섹션 */
+  #buy {background: linear-gradient(to bottom, #D2FE00 40%, white 80%);
+                    text-align: center;
+        margin-bottom: 100px;}
+
+    .buy-buttons {display: flex;
+                justify-content: center; gap: 40px;
+                margin-top: 40px;}
+    .buy-button {display: inline-block;
+                padding: 14px 36px;
+                background-color: #D2FE00; color: black;
+                font-size: 18px; font-weight: 700;
+                border: 2px solid white; border-radius: 12px;
+                transition: all 0.3s ease;}
+    .margin-bottom {margin: 0 0 40px;}
+    .buy-button:hover {background-color: black;
+                      color: #D2FE00;
+                      border: 3px solid #D2FE00;}
+
+    .price-card {background: #D2FE00; border-radius: 20px;
+                border: 3px solid white; padding: 30px 50px; 
+                align-items: center; gap: 20px;}
+
+    .badge {background: black; color: #D2FE00;
+            padding: 12px 18px; border-radius: 50%;
+            font-weight: bold; font-size: 18px;}
+
+    .price-info {text-align: center;}
+    .price-info p {margin: 4px 0;
+                  font-size: 18px; font-weight: 600;}
+
+    .old-price {text-decoration: line-through;
+                font-size: 14px; color: #444;}
+
+    .new-price {font-size: 24px; font-weight: 800; color: black;}
+    .margin-top {margin-top: 120px;}
+
+
+      
+
+
+
+  /* 푸터 */
+  #footer {margin-bottom: 0;}
+    .footer-content {display: flex; justify-content: space-between;
+                    gap: 30px; position: relative;
+                    flex-wrap: wrap; z-index: 30;}
+    .footer-info {position: relative; z-index: 30;}
+    .footer-copyright {font-size: 14px; 
+                      position: relative; z-index: 30;
+                      color: }
+    .margin-f {margin: 20px 0 20px;}
+    .font14 {font-size: 14px;}
+  
+  </style>
+</head>
+
+
+
+<body>
+<!-- 헤더 -->
+  <header>
+    <nav>
+      <div class="nav-container alexandria">
+        <ul class="nav-menu">
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#select">FILTER</a></li>
+          <li class="monoton-regular"><a href="#home">PMG</a></li>
+          <li><a href="#lovely">TRIAL</a></li>
+          <li><a href="#buy">BUY</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 홈 섹션 -->
+  <section id="home">
+    <div class="wrap">
+      <div class="logo">
+        <img src="logo.png">
+      </div>
+      <img src="glasses-1.png" class="float-updown margin-bottom" />
+      <p class="green main-text margin-bottom">
+              기분,<br> 안경 하나로<br> 바꿔보세요</p>
+      <p class="sub-text">AI 감정 분석 기반 필터 스마트 글래스, PMG</p>
+      <button><a href="#buy">BUY NOW</a></button>
+
+    </div>
+  </section>
+
+  <!-- 브랜드 소개 -->
+  <section id="about" class="about-details">
+    <div class="wrap">
+      <h2><span class="weight500">About</span> <span class="alexandria">PMG
+          </span></h2>
+      <p class="about-description">
+          PMG는 사용자의 기분과 환경에 따라 렌즈 필터를 자유롭게 교체할 수 있는 스마트 안경입니다.
+          모듈형 설계와 감정 인식 센서, 전용 모바일 앱을 통해, 일상의 순간마다 나에게 맞는 시각적 경험을 제공합니다. 당신의 감정에 반응하고, 스타일을 완성하는 새로운 방식의 웨어러블 디바이스입니다.
+      </p>
+      <img src="glasses-1.png" class="glasses-img">
+      <div class="info-box top-left">
+        <h3>모듈형 배터리+C타입 충전</h3>
+        <p>다리에 내장된 초소형 배터리로<br>하루 약 8시간 사용 가능하며,<br> Dock 또는 C타입 포트로 충전 가능</p>
+      </div>
+      <div class="info-box bottom-center">
+        <h3>내장 센서 탑재</h3>
+        <p>미니 IR센서로 얼굴 인식<br>조도 및 자이로 센서로 렌즈 밝기와<br>시선에 따른 효과 조정</p>
+      </div>
+      <div class="info-box top-right">
+        <h3>AR 디스플레이 렌즈</h3>
+        <p>투명 OLED 기술을 적용한<br>AR 디스플레이로<br>눈앞에 디지털 이미지 투</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 앱 연동 기능 소개 -->
+  <section id="app">
+    <div class="wrap phone-wrap">
+      <h2 class="rightspacing"><span class="alexandria">PMG Fit</span> 으로<br>더욱 스마트한 케어
+      </h2>
+      <p class="rightspacing">PMG는 스마트폰과 저전력 블루투스(BLE)로 연결됩니다.<br>전용 어플리케이션 PMG Fit을 실행하면 PMG를 인식하는 동시에<br>필터 변경부터 감정 분석까지 실시간으로 동기화됩니다.
+      </p>
+      <img src="iphone.jpg" class="phone-img">
+      <div class="circle-box circle-left">
+        <span>마음에 드는 필터를 찾았나요?<br>바로 구매하고 이용해보세요</span>
+      </div>
+      <div class="circle-box circle-right-top">
+        <span>PMG의 상태를<br>모니터링해요</span>
+      </div>
+      <div class="circle-box circle-right-bottom">
+        <span>심박수, 체온에 기반해<br>오늘의 감정을<br>분석해드려요</span>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 박스-1.다양한 필터  -->
+  <section id="features">
+    <div class="app-feature-wrap">
+      <div class="wrap"> 
+        <div class="app-feature-section round-right align-left">
+          <h3>다양한 필터</h3>
+        </div>
+      </div>
+      <div class="scroll-box">
+        <div class="edge-blur blur-left"></div>
+        <div class="edge-blur blur-right"></div>
+        <div class="auto-scroll delay1 ">
+          <div class="scroll-item">
+            <img src="night.png">
+          </div>
+          <div class="scroll-item">
+            <img src="castle-crop.png">
+          </div>
+          <div class="scroll-item">
+            <img src="coffee.jpeg">
+          </div>
+          <div class="scroll-item">
+            <img src="bear.png">
+          </div>
+          <div class="scroll-item">
+            <img src="mini.webp">
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="wrap">
+        <div class="app-feature-section round-left align-right">
+          <h3>PMG 모니터링</h3>
+        </div>
+      </div>
+      <div class="scroll-box">
+        <div class="edge-blur blur-left"></div>
+        <div class="edge-blur blur-right"></div>      
+        <div class="auto-scroll-2 delay2">
+          <div class="scroll-item">
+            <img src="4.png">
+          </div>
+          <div class="scroll-item">
+            <img src="2.png">
+          </div>
+          <div class="scroll-item">
+            <img src="1.png">
+          </div>
+          <div class="scroll-item">
+            <img src="3.png">
+          </div>
+          <div class="scroll-item">
+            <img src="5.png">
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="app-feature-section round-left align-right">
+          <h3>오늘의 감정 분석</h3>
+        </div>
+      </div>
+      <div class="scroll-box">
+        <div class="edge-blur blur-left"></div>
+        <div class="edge-blur blur-right"></div>      
+        <div class="auto-scroll delay3">
+          <div class="scroll-item">
+            <img src="tired.png">
+          </div>
+          <div class="scroll-item">
+            <img src="angry.png">
+          </div>
+          <div class="scroll-item">
+            <img src="crying.png">
+          </div>
+          <div class="scroll-item">
+            <img src="sleepy.png">
+          </div>
+          <div class="scroll-item">
+            <img src="hate.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- 무드 선택 -->
+  <section id="select">
+    <h2>오늘 기분은 어떠신가요?</h2>
+    <p>클릭해보세요<br>기분에 맞는 필터를 추천해드립니다</p>
+    <div class="mood-grid">
+      <a href="#lovely" class="mood-box">
+        <span>Annoying</span>
+        <img src="red.jpeg" class="hover-img">
+      </a>
+      <a href="#fantastic" class="mood-box">
+        <span>Boring</span>
+        <img src="green.jpeg" class="hover-img">
+      </a>
+      <a href="#energetic" class="mood-box">
+        <span>Depressed</span>
+        <img src="blue.jpeg" class="hover-img">
+      </a>
+      <a href="#relax" class="mood-box">
+        <span>Anxious</span>
+        <img src="orange.jpeg" class="hover-img">
+      </a>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- 필터 체험  -->
+  <section id="lovely" class="scroll-section">
+    <div class="container">
+      <img src="lovelyperson.jpg" class="image-base">
+      <img src="angryperson.jpg" class="image-top mask-target">
+      <div>
+        <a href="#select" class="back-button">&lt; Back</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="fantastic" class="scroll-section">
+    <div class="container">
+      <img src="castle.jpg" class="image-base">
+      <img src="city.jpg" class="image-top mask-target">
+    </div>
+  </section>
+
+  <section id="energetic" class="scroll-section">
+    <div class="container">
+      <img src="rainbow.png" class="image-base">
+      <img src="road.png" class="image-top mask-target">
+    </div>
+  </section>
+
+  <section id="relax" class="scroll-section">
+    <div class="container">
+      <img src="mini.png" class="image-base">
+      <img src="anxious.png" class="image-top mask-target">
+    </div>
+  </section>
+
+
+
+  
+
+
+
+  <!-- 구매 섹션 -->
+  <section id="buy">
+    <div class="wrap">
+      <h2>지금 구매하세요</h2>
+
+      <div class="buy-buttons">
+        <div class="set-crop margin-bottom">
+          <img src="set.png"/>
+        </div>
+
+        <div class="price-card margin-bottom">
+          <div class="badge">SET</div>
+          <div class="price-info margin-top">
+            <p>PMG<br> + 필터 4종</p>
+            <p class="old-price">₩1,200,000</p>
+            <p class="new-price">→ ₩1,008,500</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="">
+        <p class="buy-button margin-bottom">장바구니</p>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- 푸터 -->
+    <footer class="site-footer background-green">
+    <div class="wrap">
+      <div class="footer-content">
+        <div class="footer-info">
+          <p class="margin-f font14">상호명: PMG</p>
+          <p class="margin-f font14">대표자: 최 서연</p>
+          <p class="margin-f font14">이메일: PersonalMoodGlasses@market</p>
+        </div>
+        <div class="footer-copyright">
+          <p class="margin-f font14">© 2025 PMG Corp. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script>
+    const img = document.querySelectorAll(".mask-target");
+
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      const mask = `radial-gradient(circle 180px at ${x}px ${y}px, transparent 0%, transparent 90%, black 100%)`;
+
+      img. forEach((el) => 
+        {el.style.webkitMaskImage = mask;
+        el.style.maskImage = mask;});
+    });
+    // 클래스가 'buy-button'인 버튼을 찾아서
+    const buyBtn = document.querySelector('.buy-button');
+
+    // 클릭하면 alert 창 띄우기
+    buyBtn.addEventListener('click', () => 
+                {alert('장바구니에 담겼습니다!');});
+
+  </script>
+</body>
+
+</html>
